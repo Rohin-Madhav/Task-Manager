@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "../api/Api";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const [tasks, setTasks] = useState([]);
   const [formData, setFormData] = useState({ title: "", description: "" });
   const [editingId, setEditingId] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchTasks();
@@ -17,6 +19,9 @@ function Dashboard() {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(res.data);
+      if(!token) {
+        navigate("/login");
+      }
     } catch (err) {
       console.error(err);
     }
