@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-<<<<<<< HEAD
+
 import api from "../api/Api";
-=======
-import { API_URL } from "../api/Api";
->>>>>>> 07819d7072b734d6ae5bae978640f1998c8a7ab0
+
+
+
 
 function LoginForm() {
   const [email, setEmail] = useState("");
